@@ -16,7 +16,7 @@
 #$ -pe smp 18
 
 # Set the name of the job.
-#$ -N spikesortJob4_pykilsortfettucini_S2_28012023
+#$ -N spikesortJob2_pykilsortorechiette_S2_10022023
 
 # Set the working directory to somewhere in your scratch space.
 # Replace "<your_UCL_id>" with your UCL user ID :)
@@ -59,6 +59,6 @@ cd /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/
 
 python /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/runspikesortingnptest_pykilosorts2.py
 # 10. Preferably, tar-up (archive) all output files onto the shared scratch area
-tar zcvf $HOME/Scratch/files_from_job_pykilosort_fet_28012023_S2_4_$JOB_ID.tar.gz $TMPDIR
+tar zcvf $HOME/Scratch/files_from_job_pykilosort_ore_09022023_6_$JOB_ID.tar.gz $TMPDIR
 
 # Make sure you have given enough time for the copy to complete!t

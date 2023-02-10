@@ -16,7 +16,7 @@
 #$ -pe smp 18
 
 # Set the name of the job.
-#$ -N spikesortJob1_pykilsortfettucini_S1_27012023
+#$ -N spikesortJob2_pykilsortfettucini_S1_06022023
 
 # Set the working directory to somewhere in your scratch space.
 # Replace "<your_UCL_id>" with your UCL user ID :)
