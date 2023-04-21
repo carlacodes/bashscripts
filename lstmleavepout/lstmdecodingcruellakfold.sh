@@ -16,7 +16,7 @@
 #$ -pe smp 36
 
 # Set the name of the job.
-#$ -N LSTMjob_cruella_kfold_14012023_01
+#$ -N LSTMjob_cruella_kfold_27032023_01bb4bb5
 
 # Set the working directory to somewhere in your scratch space.
 # Replace "<your_UCL_id>" with your UCL user ID :)
@@ -37,7 +37,7 @@ module load python3/3.8
 
 module list
 
-cp ~/home/zceccgr/Scratch/zceccgr/lstmdecodingproject/cgeuclidean_cv_kfold10iter_score_classification_cruella.py $TMPDIR
+cp ~/home/zceccgr/Scratch/zceccgr/lstmdecodingproject/cgeuclidean_cv_kfold10iter_score_classification_cruellajan26tomar.py $TMPDIR
 #cp -r ~/Scratch/zceccgr/instruments/ $TMPDIR
 
 
@@ -47,9 +47,9 @@ source /home/zceccgr/envlib/newlstm/bin/activate
 
 # Run the application - the line below is just a random example.
 #matlab -nosplash -nodesktop -nodisplay <  ~/Scratch/zceccgr/Kilosort-2.0/CUDA/mexGPUall.m
-python /home/zceccgr/Scratch/zceccgr/lstmdecodingproject/cgeuclidean_cv_kfold10iter_score_classification_cruella.py
+python /home/zceccgr/Scratch/zceccgr/lstmdecodingproject/cgeuclidean_cv_kfold10iter_score_classification_cruellajan26tomar.py
 
 # 10. Preferably, tar-up (archive) all output files onto the shared scratch area
-tar zcvf $HOME/Scratch/files_from_jobLSTM14012023_cruella_1_$JOB_ID.tar.gz $TMPDIR
+tar zcvf $HOME/Scratch/files_from_jobLSTM27032023_cruella_1_$JOB_ID.tar.gz $TMPDIR
 
 # Make sure you have given enough time for the copy to complete!

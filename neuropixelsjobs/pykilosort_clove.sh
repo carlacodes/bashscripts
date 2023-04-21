@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
 # Request 1 hour of wallclock time (format hours:minutes:seconds).
-#$ -l h_rt=12:00:00
+#$ -l h_rt=3:00:00
 
 # Request 256 gigabyte of RAM (must be an integer followed by M, G, or T)
 #$ -l mem=10G
@@ -16,7 +16,7 @@
 #$ -pe smp 18
 
 # Set the name of the job.
-#$ -N spikesortJob2_pykilsortorechiette_pcametrics_S2_04042023
+#$ -N spikesortJob2_clove_18042023
 #$ -wd /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject
 
 
@@ -46,7 +46,7 @@ conda activate ibl_pykil_ss
 
 
 
-cp /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/runspikesortingnptest_pykilosorts2.py $TMPDIR
+cp /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/runspikesortingnptest_pykilosorts_clove.py $TMPDIR
 
 # cp -r ~/Scratch/zceccgr/Kilosort-main/CUDA/mexGPUall.m $TMPDIR
 # cp -r ~/Scratch/zceccgr/Kilosort-main/CUDA/ $TMPDIR
@@ -61,8 +61,8 @@ cp /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/runspikesortingnptes
 
 #python /home/zceccgr/Scratch/zceccgr/spikeinterface3cg/spikesorting_install_test.py
 
-python /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/runspikesortingnptest_pykilosorts2.py
+python /home/zceccgr/Scratch/zceccgr/neuropixelsdecodingproject/runspikesortingnptest_pykilosorts_clove.py
 # 10. Preferably, tar-up (archive) all output files onto the shared scratch area
-tar zcvf $HOME/Scratch/files_from_job_pykilosort_ore_04042023_2_$JOB_ID.tar.gz $TMPDIR
+tar zcvf $HOME/Scratch/files_from_job_pykilosort_clove_2_18042023_$JOB_ID.tar.gz $TMPDIR
 
 # Make sure you have given enough time for the copy to complete!t

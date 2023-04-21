@@ -3,7 +3,7 @@
 # Batch script to run a multi-threaded MATLAB job under SGE.
 
 # Request ten minutes of wallclock time (format hours:minutes:seconds).
-#$ -l h_rt=10:00:00
+#$ -l h_rt=19:00:00
 
 # Request 1 gigabyte of RAM per core. 
 #$ -l mem=30G
@@ -13,14 +13,14 @@
 
 # Request a number of threads (which will use that number of cores). 
 # On Myriad you can set the number of threads to a maximum of 36. 
-#$ -pe smp 20
+#$ -pe smp 36
 
 # Set the name of the job.
-#$ -N spikesortJob1_ms4cruellaBB4BB5_21042023
+#$ -N LSTMjob_orecchiette_kfold_04042023_01_s2
 
 # Set the working directory to somewhere in your scratch space.
 # Replace "<your_UCL_id>" with your UCL user ID :)
-#$ -wd /home/zceccgr/Scratch/zceccgr/spikeinterface3cg
+#$ -wd /home/zceccgr/Scratch/zceccgr/lstmdecodingproject/leavepoutcrossvalidationlstmdecoder/
 
 # Change into temporary directory to run work
 cd $TMPDIR
@@ -37,33 +37,19 @@ module load python3/3.8
 
 module list
 
-
-cp ~/Scratch/zceccgr/spikeinterface3cg/interfacetest_jules_cg_kilosort_concatenate_ms4_cruella2104.py $TMPDIR
-cp -r ~/Scratch/zceccgr/spikeinterface3cg/ $TMPDIR
-# cp -r ~/Scratch/zceccgr/Kilosort-2.0/ $TMPDIR
-# cp -r ~/Scratch/zceccgr/Kilosort-2.0/CUDA/. $TMPDIR
-
-# cp -r ~/Scratch/zceccgr/Kilosort-2.0/CUDA/mexGPUall.m $TMPDIR
-
-# cp ~/Scratch/zceccgr/Kilosort-2.0/mexThSpkPC.cu $TMPDIR
-
-
-
-
-
+cp ~/home/zceccgr/Scratch/zceccgr/lstmdecodingproject/cgeuclidean_cv_kfold10iter_score_classification_ore_s2.py $TMPDIR
+#cp -r ~/Scratch/zceccgr/instruments/ $TMPDIR
 
 
 
 # Activate python environment
-source /home/zceccgr/spkenv2/bin/activate
+source /home/zceccgr/envlib/newlstm/bin/activate
 
 # Run the application - the line below is just a random example.
 #matlab -nosplash -nodesktop -nodisplay <  ~/Scratch/zceccgr/Kilosort-2.0/CUDA/mexGPUall.m
-python /home/zceccgr/Scratch/zceccgr/spikeinterface3cg/spikesorting_install_test.py
-
-python /home/zceccgr/Scratch/zceccgr/spikeinterface3cg/interfacetest_jules_cg_kilosort_concatenate_ms4_cruella2104.py
+python /home/zceccgr/Scratch/zceccgr/lstmdecodingproject/cgeuclidean_cv_kfold10iter_score_classification_ore_s2.py
 
 # 10. Preferably, tar-up (archive) all output files onto the shared scratch area
-tar zcvf $HOME/Scratch/files_from_job210423BB4BB5_CRUELLA_1_$JOB_ID.tar.gz $TMPDIR
+tar zcvf $HOME/Scratch/files_from_job04042023_ore_s2_1_$JOB_ID.tar.gz $TMPDIR
 
 # Make sure you have given enough time for the copy to complete!
